@@ -42,6 +42,10 @@ def signup():
         verify_error = "Passwords do not match. Please try again."
         verify = ""
 
+    if '@' not in email or '.com' not in email:
+        email_error = 'Must be a valid email.'
+        email = ""
+
     if not username_error and not password_error and not verify_error and not email_error:
         return render_template('welcome.html', username = username)
     else:
